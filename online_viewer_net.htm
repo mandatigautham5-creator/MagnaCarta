@@ -1,0 +1,1133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Magna Carta: Voices | National History Challenge 2026</title>
+  <style>
+    :root {
+      --ink: #191714;
+      --paper: #f6f0e4;
+      --panel: #fffaf0;
+      --red: #a33f2f;
+      --gold: #c69a3a;
+      --green: #476b54;
+      --blue: #355f7c;
+      --plum: #6d4a64;
+      --line: rgba(25, 23, 20, .18);
+      --shadow: 0 18px 50px rgba(33, 25, 14, .14);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      background: var(--paper);
+      line-height: 1.55;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-color: var(--gold);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      color: #fff8ea;
+      background:
+        linear-gradient(90deg, rgba(20, 15, 10, .86), rgba(20, 15, 10, .48) 55%, rgba(20, 15, 10, .15)),
+        url("king-john-magna-carta.svg") center / cover;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      padding: 18px clamp(18px, 4vw, 56px);
+      background: rgba(13, 10, 7, .35);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,.16);
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: .86rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .nav-links a {
+      color: #fff8ea;
+      text-decoration: none;
+      font-size: .92rem;
+      padding: 8px 10px;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.08);
+    }
+
+    .hero-inner {
+      width: min(1160px, 100%);
+      padding: 6vh clamp(20px, 5vw, 72px) 10vh;
+      align-self: end;
+    }
+
+    .tagline {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      margin: 0 0 22px;
+      color: #fff2cd;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .8rem;
+    }
+
+    .tagline::before {
+      content: "";
+      width: 36px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.08;
+    }
+
+    h1 {
+      max-width: 930px;
+      font-size: clamp(3rem, 8vw, 7.8rem);
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 700;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 22px 0 0;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      color: #fff4dc;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 10px 15px;
+      border: 1px solid rgba(255,255,255,.32);
+      background: #fff8ea;
+      color: #21180d;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .btn.alt {
+      background: rgba(255,255,255,.1);
+      color: #fff8ea;
+    }
+
+    .image-note {
+      margin-top: 36px;
+      max-width: 680px;
+      color: rgba(255,248,234,.82);
+      font-size: .86rem;
+    }
+
+    section {
+      padding: clamp(54px, 8vw, 96px) clamp(18px, 5vw, 72px);
+    }
+
+    .section-inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 420px);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      color: var(--red);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .78rem;
+      margin: 0 0 12px;
+    }
+
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 5vw, 4.6rem);
+    }
+
+    .section-head p,
+    .lead {
+      margin: 0;
+      font-size: 1.08rem;
+      color: #51493f;
+    }
+
+    .voices {
+      background: #fff9ec;
+    }
+
+    .voice-board {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .voice-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .voice-tab,
+    .timeline-tab,
+    .country-tab,
+    .war-tab,
+    .clause-tab {
+      min-height: 54px;
+      border: 1px solid var(--line);
+      background: #fffdf6;
+      color: var(--ink);
+      text-align: left;
+      padding: 11px 13px;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .voice-tab small,
+    .timeline-tab small {
+      display: block;
+      font-weight: 600;
+      color: #6e6256;
+      margin-top: 2px;
+    }
+
+    .voice-tab.active,
+    .timeline-tab.active,
+    .country-tab.active,
+    .war-tab.active,
+    .clause-tab.active {
+      color: #fffdf6;
+      border-color: transparent;
+      background: var(--blue);
+      box-shadow: var(--shadow);
+    }
+
+    .voice-card {
+      min-height: 410px;
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .voice-copy {
+      padding: clamp(22px, 4vw, 42px);
+    }
+
+    .voice-copy h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+    }
+
+    .quote {
+      margin: 18px 0;
+      padding-left: 18px;
+      border-left: 4px solid var(--gold);
+      font-size: 1.18rem;
+      color: #3f352a;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 5px 9px;
+      background: #efe1c7;
+      color: #2b241d;
+      border: 1px solid rgba(25, 23, 20, .12);
+      font-size: .85rem;
+      font-weight: 800;
+    }
+
+    .voice-media {
+      min-height: 340px;
+      position: relative;
+      background: #21180d;
+    }
+
+    .caption {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      padding: 10px 12px;
+      background: rgba(20, 15, 10, .78);
+      color: #fff8ea;
+      font-size: .8rem;
+    }
+
+    .clauses {
+      background: #f1e7d4;
+    }
+
+    .clause-layout {
+      display: grid;
+      grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr);
+      gap: 18px;
+    }
+
+    .clause-tabs {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .clause-panel,
+    .timeline-panel,
+    .war-panel,
+    .society-panel {
+      padding: clamp(22px, 4vw, 40px);
+      background: #fffdf6;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .clause-panel h3,
+    .timeline-panel h3,
+    .war-panel h3,
+    .society-panel h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.7rem, 3vw, 2.8rem);
+    }
+
+    .clause-text {
+      margin: 18px 0;
+      padding: 18px;
+      background: #f7ecd9;
+      border-left: 5px solid var(--red);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.18rem;
+    }
+
+    .timeline {
+      background: #fff9ec;
+    }
+
+    .timeline-shell {
+      display: grid;
+      grid-template-columns: 290px minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .timeline-tabs {
+      display: grid;
+      gap: 10px;
+    }
+
+    .timeline-panel {
+      min-height: 460px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+      gap: 26px;
+      align-items: center;
+    }
+
+    .year {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 14px;
+      min-height: 38px;
+      padding: 6px 10px;
+      color: #fffdf6;
+      background: var(--green);
+      font-weight: 900;
+      letter-spacing: .05em;
+    }
+
+    .timeline-art {
+      min-height: 300px;
+      border: 1px solid var(--line);
+      background: #ead8b8;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .diagram {
+      width: 100%;
+      min-height: 300px;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+    }
+
+    .diagram svg {
+      width: min(360px, 100%);
+      height: auto;
+    }
+
+    .wars {
+      background: #e8efe6;
+    }
+
+    .war-grid {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .war-tabs {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .war-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, .72fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 12px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .mini-list li {
+      padding: 12px;
+      background: #edf4ea;
+      border-left: 4px solid var(--green);
+    }
+
+    .stat-band {
+      background: #2d2520;
+      color: #fff6e7;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .stat {
+      padding: clamp(22px, 4vw, 36px);
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.08);
+      min-height: 210px;
+    }
+
+    .stat strong {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.2rem, 8vw, 6rem);
+      line-height: 1;
+      color: #f2c66b;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 12px;
+      color: #f8e9ca;
+      font-size: 1.05rem;
+    }
+
+    .societies {
+      background: #fff9ec;
+    }
+
+    .society-layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .country-tabs {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .society-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, .78fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .society-image {
+      min-height: 310px;
+      position: relative;
+      background: #21180d;
+      overflow: hidden;
+    }
+
+    .reflection {
+      background: #f1e7d4;
+    }
+
+    .reflection-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .reflection-card {
+      padding: clamp(22px, 4vw, 38px);
+      background: #fffdf6;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .sources {
+      background: #201b18;
+      color: #fff8ea;
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .source-card {
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.07);
+      min-height: 210px;
+    }
+
+    .source-card h3 {
+      font-size: 1.1rem;
+      line-height: 1.25;
+    }
+
+    .source-card p {
+      color: #eadfc9;
+      margin: 12px 0 0;
+      font-size: .95rem;
+    }
+
+    .footnote {
+      margin-top: 24px;
+      color: #dcc9a8;
+      font-size: .9rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .section-head,
+      .voice-board,
+      .voice-card,
+      .clause-layout,
+      .timeline-shell,
+      .timeline-panel,
+      .war-grid,
+      .war-panel,
+      .stats,
+      .society-layout,
+      .society-panel,
+      .reflection-grid,
+      .source-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .voice-list,
+      .timeline-tabs,
+      .country-tabs,
+      .war-tabs,
+      .clause-tabs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        min-height: 88vh;
+      }
+
+      .nav-links a {
+        font-size: .82rem;
+        padding: 7px 8px;
+      }
+
+      .voice-list,
+      .timeline-tabs,
+      .country-tabs,
+      .war-tabs,
+      .clause-tabs {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        min-height: 160px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav" aria-label="Main navigation">
+      <div class="brand">National History Challenge 2026</div>
+      <div class="nav-links">
+        <a href="#voices">Voices</a>
+        <a href="#clauses">Legal Voice</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#wars">Barons' Wars</a>
+        <a href="#legacy">Legacy</a>
+        <a href="#sources">Sources</a>
+      </div>
+    </nav>
+    <div class="hero-inner">
+      <p class="tagline">Theme: Voices</p>
+      <h1>Magna Carta</h1>
+      <p>The 1215 Charter turned grievances about corruption, arbitrary power and a broken justice system into a royal command. It gave political voice to powerful opponents of King John, then became a lasting symbol that rulers can be held accountable by law.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#voices">Hear the voices</a>
+        <a class="btn alt" href="#timeline">Explore democracy's path</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="voices" id="voices">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">the representation of voices</p>
+            <h2>Who were heard in 1215?</h2>
+          </div>
+          <p>Magna Carta was not a modern democracy. It represented only the elites - the barons and nobles, yet the charter's later interpretation gave wider communities a language for rights, limits and accountability (Holt, 2015; UK Parliament, 2024).</p>
+        </div>
+        <div class="voice-board">
+          <div class="voice-list" role="tablist" aria-label="Voices affected by Magna Carta">
+            <button class="voice-tab active" type="button" data-voice="barons" role="tab" aria-selected="true">The Barons <small>Grief to demand</small></button>
+            <button class="voice-tab" type="button" data-voice="king" role="tab" aria-selected="false">King John <small>The Crown is contested</small></button>
+            <button class="voice-tab" type="button" data-voice="church" role="tab" aria-selected="false">The Church <small>Protection of Church Rights</small></button>
+            <button class="voice-tab" type="button" data-voice="people" role="tab" aria-selected="false">Common People <small>Marginalised and limited</small></button>
+          </div>
+          <article class="voice-card" aria-live="polite">
+            <div class="voice-copy">
+              <h3 id="voice-title">The Barons</h3>
+              <p class="quote" id="voice-quote">“Our loyalty cannot mean silence when justice is sold and taxes are forced.”</p>
+              <p id="voice-body">The barons used rebellion to make their complaints official. They contested the heavy payments, arbitrary punishments and royal decisions made by King John without meaningful consultation. Magna Carta used the grievances and struggles of the barons and turned them into demands that had to be signed.</p>
+              <div class="pill-row" id="voice-tags">
+                <span class="pill">taxation</span><span class="pill">counsel</span><span class="pill">accountability</span>
+              </div>
+            </div>
+            <div class="voice-media">
+              <img id="voice-img" alt="King John with barons at Runnymede" src="king-john-magna-carta.svg">
+              <div class="caption" id="voice-caption">Image: local illustration of King John, the barons and the charter at Runnymede.</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="clauses" id="clauses">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">The charter's legal voice</p>
+            <h2>Due process, justice and consent</h2>
+          </div>
+          <p>Many clauses dealt with medieval feudal problems, but later generations heard a bigger message: the ruler must act through law, justice cannot be bought, and extraordinary taxation should involve consent (UK Parliament, 2024).</p>
+        </div>
+        <div class="clause-layout">
+          <div class="clause-tabs" role="tablist" aria-label="Magna Carta legal clauses">
+            <button class="clause-tab active" type="button" data-clause="39">Clause 39: Due process</button>
+            <button class="clause-tab" type="button" data-clause="40">Clause 40: Justice</button>
+            <button class="clause-tab" type="button" data-clause="12">Clause 12: Consent</button>
+            <button class="clause-tab" type="button" data-clause="1">Clause 1: Church liberty</button>
+          </div>
+          <article class="clause-panel" aria-live="polite">
+            <h3 id="clause-title">Clause 39: Due process</h3>
+            <p class="clause-text" id="clause-text">Translated meaning: no free person could be imprisoned, dispossessed, outlawed or ruined except through lawful judgment by peers or by the law of the land.</p>
+            <p id="clause-body">This became the strongest legal voice of Magna Carta. In 1215 it mainly protected free men, especially landholders, but later readers expanded its meaning into the principle that government must use fair legal procedure before taking liberty, property or status.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="timeline" id="timeline">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Interactive timeline</p>
+            <h2>From civic voice to constitutional voice</h2>
+          </div>
+          <p>Democracy did not arrive in a straight line. Each stage added a new answer to the same question: who gets to speak when power is exercised?</p>
+        </div>
+        <div class="timeline-shell">
+          <div class="timeline-tabs" role="tablist" aria-label="Evolution of democracy timeline">
+            <button class="timeline-tab active" type="button" data-time="greece">Athenian Democracy <small>c. 508 BCE</small></button>
+            <button class="timeline-tab" type="button" data-time="rome">Roman Republic <small>509 BCE onward</small></button>
+            <button class="timeline-tab" type="button" data-time="1215">Birth of Magna Carta <small>1215</small></button>
+            <button class="timeline-tab" type="button" data-time="1225">Reissue of Magna Carta <small>1225</small></button>
+            <button class="timeline-tab" type="button" data-time="1258">Provisions of Oxford <small>1258</small></button>
+            <button class="timeline-tab" type="button" data-time="1297">English Statutory Law <small>1297</small></button>
+          </div>
+          <article class="timeline-panel" aria-live="polite">
+            <div>
+              <span class="year" id="timeline-year">c. 508 BCE</span>
+              <h3 id="timeline-title">Ancient Greece: citizens debate public power</h3>
+              <p id="timeline-body">Athens developed direct participation for male citizens. It excluded women, enslaved people and foreigners, but it introduced an enduring idea: political decisions could be argued publicly rather than simply ordered from above.</p>
+            </div>
+            <div class="timeline-art">
+              <div class="diagram" id="timeline-diagram" aria-hidden="true"></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="wars" id="wars">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Conflict after the charter</p>
+            <h2>The First and Second Barons' War</h2>
+          </div>
+          <p>Magna Carta began as a peace treaty, however, the peace did not last for long. The Barons' Wars were caused by the Church's compromises with the Crown in order to protect them from the Magna Carta..</p>
+        </div>
+        <div class="war-grid">
+          <div class="war-tabs" role="tablist" aria-label="Barons' wars">
+            <button class="war-tab active" type="button" data-war="first">First Barons' War</button>
+            <button class="war-tab" type="button" data-war="second">Second Barons' War</button>
+          </div>
+          <article class="war-panel" aria-live="polite">
+            <div>
+              <h3 id="war-title">First Barons' War, 1215-1217</h3>
+              <p id="war-body">After Magna Carta was sealed, King John rejected its limits and Pope Innocent III annulled it. Rebel barons invited Prince Louis of France to claim the English throne. John's death in 1216 changed the conflict, as supporters of the young Henry III reissued a revised charter, helping turn the charter from a failed settlement into a political tool for peace and support.</p>
+            </div>
+            <ul class="mini-list" id="war-points">
+              <li>Cause: distrust between John and the rebel barons.</li>
+              <li>Turning point: John's death in October 1216.</li>
+              <li>Outcome: Magna Carta was reissued under Henry III.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="stat-band" id="legacy">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Why it still matters</p>
+            <h2>The significance of Magna Carta</h2>
+          </div>
+          <p>Its original political purpose was narrow, but its afterlife was enormous. The charter became a symbol people returned to whenever they needed a legal language against arbitrary power.</p>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <strong>4</strong>
+            <span>original 1215 copies are preserved: two at the British Library, one at Lincoln, and one at Salisbury.</span>
+          </div>
+          <div class="stat">
+            <strong>63</strong>
+            <span>modern numbered clauses are used to study the 1215 text, although the original was written as continuous Latin prose.</span>
+          </div>
+          <div class="stat">
+            <strong>800+</strong>
+            <span>years of interpretation turned a baronial peace deal into a global symbol of rule of law and accountable government.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="societies" id="societies">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Modern societies</p>
+            <h2>How Magna Carta travelled</h2>
+          </div>
+          <p>Magna Carta's influence spread through English law, colonial legal systems, constitutional argument and international human rights language.</p>
+        </div>
+        <div class="society-layout">
+          <div class="country-tabs" role="tablist" aria-label="Modern societies shaped by Magna Carta">
+            <button class="country-tab active" type="button" data-country="uk">United Kingdom</button>
+            <button class="country-tab" type="button" data-country="us">United States</button>
+            <button class="country-tab" type="button" data-country="australia">Australia</button>
+            <button class="country-tab" type="button" data-country="un">United Nations</button>
+          </div>
+          <article class="society-panel" aria-live="polite">
+            <div>
+              <h3 id="country-title">United Kingdom</h3>
+              <p id="country-body">In the UK, Magna Carta became a foundation myth for the rule of law. Clauses about church liberty, London liberties and due legal process survived in later law, while the charter's wider symbolism helped Parliament argue that the Crown was not above the law.</p>
+              <div class="pill-row" id="country-tags">
+                <span class="pill">rule of law</span><span class="pill">Parliament</span><span class="pill">due process</span>
+              </div>
+            </div>
+            <div class="society-image">
+              <img id="country-img" alt="Magna Carta memorial at Runnymede" src="runnymede-memorial.svg">
+              <div class="caption" id="country-caption">Image: local illustration of the Magna Carta Memorial at Runnymede.</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reflection" id="reflection">
+      <div class="section-inner">
+        <div class="reflection-grid">
+          <div>
+            <p class="eyebrow">Reflection</p>
+            <h2>What we learned</h2>
+          </div>
+          <div class="reflection-card">
+            <p>We chose the Magna Carta because of its massive legacy. It is incredible how a medieval dispute between unsatisfied barons and King John laid the groundwork for modern constitutional law and human rights.</p>
+            <p>To understand its journey, we analysed the translated 1215 text alongside research about its changing impact over time. We focused on how its ideas spread across the world and shaped modern societies.</p>
+            <p>Ultimately, we learned that Magna Carta's power lies less in its original text, which mostly dealt with medieval feudal law, and more in how later generations reinterpreted it. Liberty is a historical evolution: a document meant to protect medieval elites eventually became a universal symbol of the rule of law and a shield against arbitrary power.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sources" id="sources">
+      <div class="section-inner">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Sources used</p>
+            <h2>Main Sources</h2>
+          </div>
+          <p>In-text references appear in the website..</p>
+        </div>
+        <div class="source-grid">
+          <div class="source-card">
+            <h3>GuyFoxTV (2015). <em>The Story of Magna Carta</em>.</h3>
+            <p>YouTube video used for narrative overview of the dispute between King John and the barons. Available at: <a href="https://www.youtube.com/watch?v=9zT4hkAxzLg">youtube.com/watch?v=9zT4hkAxzLg</a></p>
+          </div>
+          <div class="source-card">
+            <h3>Holt, J. C. (2015). <em>Magna Carta</em>.</h3>
+            <p>Cambridge: Cambridge University Press. Used for historical interpretation, context and the charter's changing meaning over time.</p>
+          </div>
+          <div class="source-card">
+            <h3>UK Parliament (2024). <em>The contents of Magna Carta</em>.</h3>
+            <p>Used for clause counts, surviving clauses and the significance of clauses 39 and 40. Available at: <a href="https://www.parliament.uk/about/living-heritage/evolutionofparliament/originsofparliament/birthofparliament/overview/magnacarta/magnacartaclauses/">parliament.uk</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const voiceData = {
+      barons: {
+        title: "The Barons",
+        quote: "“Our loyalty cannot mean silence when justice is sold and taxes are forced.”",
+        body: "The barons used rebellion to express their grievances with King John's infamously disastrous rule. They objected to heavy payments, arbitrary punishments and royal decisions made by the king without meaningful consultation. Magna Carta compiled the demands of the nobles into a Charter.",
+        tags: ["taxation", "counsel", "accountability"],
+        img: "king-john-magna-carta.svg",
+        alt: "King John with barons at Runnymede",
+        caption: "Image: local illustration of King John, the barons and the charter at Runnymede."
+      },
+      king: {
+        title: "King John",
+        quote: "“A king's command now has conditions written beside it.”",
+        body: "For King John, the Magna Carta limited his royal authority and governance. He grants rights which protect the nobles, such as lawful conviction, meaningful taxation and fair trial. The Charter was created as a counter to his heinous rule which affected the lives of many in the Kingdom of England..",
+        tags: ["royal limits", "democracy", "law above ruler"],
+        img: "king-john-magna-carta.svg",
+        alt: "Illustration of King John sealing Magna Carta",
+        caption: "Image: local illustration showing King John at the centre of a legal and political bargain he did not want to keep."
+      },
+      church: {
+        title: "The Church",
+        quote: "“The church must be free to speak with its own authority.”",
+        body: "Clause 1 of the Charter protected the English Church's freedom. This mattered because church leaders were not only religious figures, but they were also political negotiators, record keepers and voices for society where their written authority was significant.",
+        tags: ["church liberty", "Stephen Langton", "Pope Innocent III"],
+        img: "cathedral.svg",
+        alt: "Canterbury Cathedral interior",
+        caption: "Image: local cathedral illustration evoking the church world of Archbishop Stephen Langton, a key mediator in 1215."
+      },
+      people: {
+        title: "The Common People",
+        quote: "“The words did not begin with us, but later generations made them speak for us.”",
+        body: "Many of the commoners were not directly involved with the 1215 charter. Yet the language of justice, lawful judgment and restraint on power was later reinterpreted and used more broadly in society. That is why Magna Carta became a symbol for rights beyond the elite statesmen of Medieval times.",
+        tags: ["limited original reach", "later reinterpretation", "human rights"],
+        img: "runnymede-memorial.svg",
+        alt: "Magna Carta memorial at Runnymede",
+        caption: "Image: local Runnymede memorial illustration showing how a medieval settlement became a public symbol."
+      }
+    };
+
+    const clauseData = {
+      "39": {
+        title: "Clause 39: Due process",
+        text: "Translated meaning: no free person could be imprisoned, dispossessed, outlawed or ruined except through lawful judgment by peers or by the law of the land.",
+        body: "This became the strongest legal voice of Magna Carta. In 1215 it mainly protected free men, especially landholders, but later readers expanded its meaning into the principle that government must use fair legal procedure before taking liberty, property or status."
+      },
+      "40": {
+        title: "Clause 40: Justice",
+        text: "Translated meaning: justice must not be sold, denied or delayed.",
+        body: "This clause attacked corruption directly. It gave later legal culture a compact moral demand: courts should not become marketplaces where only the wealthy can buy outcomes or speed."
+      },
+      "12": {
+        title: "Clause 12: Consent",
+        text: "Translated meaning: certain royal payments, including scutage and aid, should not be imposed without the common counsel of the kingdom.",
+        body: "This was not universal voting, but it mattered. It connected taxation to consultation and helped later generations argue that rulers needed consent before taking money from the governed."
+      },
+      "1": {
+        title: "Clause 1: Church liberty",
+        text: "Translated meaning: the English Church should be free and hold its rights and liberties undamaged.",
+        body: "The first clause made church freedom part of the political settlement. Its placement shows how closely religious authority, written law and royal power were connected in medieval England."
+      }
+    };
+
+    const timelineData = {
+      greece: {
+        year: "c. 508 BCE",
+        title: "Ancient Greece: citizens debate public power",
+        body: "Athens developed direct participation for male citizens. It excluded women, enslaved people and foreigners, but it introduced an enduring idea: political decisions could be argued publicly rather than simply ordered from above.",
+        diagram: "assembly"
+      },
+      rome: {
+        year: "509 BCE onward",
+        title: "Rome: republican checks and civic offices",
+        body: "The Roman Republic mixed elected magistrates, assemblies and the Senate. Its voice was still unequal, but it helped preserve the idea that law, office and public duty could restrain personal rule.",
+        diagram: "columns"
+      },
+      "1215": {
+        year: "1215",
+        title: "Magna Carta: the Crown is answerable",
+        body: "At Runnymede, King John accepted written limits after baronial rebellion. The charter was born from elite conflict, yet its clauses on lawful judgment and justice became a seedbed for later constitutional argument.",
+        diagram: "seal"
+      },
+      "1225": {
+        year: "1225",
+        title: "The 1225 reissue: a charter with staying power",
+        body: "Henry III reissued Magna Carta in a shorter, more stable form. This version became central to later confirmations and helped the charter survive beyond the crisis of King John's reign.",
+        diagram: "scroll"
+      },
+      "1258": {
+        year: "1258",
+        title: "Provisions of Oxford: reforming royal government",
+        body: "Baronial reformers tried to supervise Henry III through a council and regular parliaments. The Provisions of Oxford show the same pressure returning: political voice demanded structures, not just promises.",
+        diagram: "council"
+      },
+      "1297": {
+        year: "1297",
+        title: "1297: Magna Carta enters statute",
+        body: "Edward I confirmed Magna Carta as statute law. This helped make the charter a legal reference point for later generations, including arguments about Parliament, rights and due process.",
+        diagram: "law"
+      }
+    };
+
+    const warData = {
+      first: {
+        title: "First Barons' War, 1215-1217",
+        body: "After Magna Carta was sealed, King John rejected its limits and Pope Innocent III annulled it. Rebel barons invited Prince Louis of France to claim the English throne. John's death in 1216 changed the conflict: supporters of the young Henry III reissued a revised charter, helping turn the charter from a failed settlement into a political tool for peace.",
+        points: ["Cause: distrust between John and the rebel barons.", "Turning point: John's death in October 1216.", "Outcome: Magna Carta was reissued under Henry III."]
+      },
+      second: {
+        title: "Second Barons' War, 1264-1267",
+        body: "The second conflict grew from demands that Henry III honour reform promises connected to the Provisions of Oxford. Simon de Montfort led opposition to the king and briefly controlled government. His 1265 parliament invited knights and burgesses, widening political voice beyond the highest nobility.",
+        points: ["Cause: conflict over reform and royal accountability.", "Key figure: Simon de Montfort.", "Legacy: the idea of broader representation became harder to ignore."]
+      }
+    };
+
+    const countryData = {
+      uk: {
+        title: "United Kingdom",
+        body: "In the UK, Magna Carta became a foundation for the significant 'Rule of Law'. Clauses about church liberty, London liberties and due legal process survived in later law, while the charter's wider symbolism helped Parliament argue that the Crown was not above the law.",
+        tags: ["rule of law", "Parliament", "due process"],
+        img: "runnymede-memorial.svg",
+        alt: "Magna Carta memorial at Runnymede",
+        caption: "Image: local illustration of the Magna Carta Memorial at Runnymede."
+      },
+      us: {
+        title: "United States",
+        body: "American colonists and founders used Magna Carta as proof that inherited liberties could limit government. It contributed to the creation of the United States Declaration of Independence, United States Constitution and the United States Bill of Rights.",
+        tags: ["due process", "constitutional limits", "rights"],
+        img: "us-constitution.svg",
+        alt: "First page of the United States Constitution",
+        caption: "Image: local illustration of the U.S. Constitution, part of a later legal culture influenced by Magna Carta's symbolism."
+      },
+      australia: {
+        title: "Australia",
+        body: "Australia incorporated many elements of the English legal system through colonisation, including the rule of law which comes from the Magna Carta. A 1297 Magna Carta is held in Parliament House, Canberra, making the charter an integral aspect of Australia's legal system",
+        tags: ["common law", "Parliament House", "legal inheritance"],
+        img: "australia-parliament.svg",
+        alt: "Parliament House in Canberra",
+        caption: "Image: local illustration of Parliament House, Canberra, where Australia's 1297 Magna Carta is displayed."
+      },
+      un: {
+        title: "United Nations: Universal Declaration of Human Rights",
+        body: "The Universal Declaration of Human Rights is not a direct copy of Magna Carta, but it attributes to a lot of Magna Carta's context, particularly how it limits the abuse of power and increases human rights. Magna Carta's later voice can be heard in the global language of dignity, law and rights.",
+        tags: ["human dignity", "international rights", "written principles"],
+        img: "udhr.svg",
+        alt: "Eleanor Roosevelt holding the Universal Declaration of Human Rights",
+        caption: "Image: local illustration representing the Universal Declaration of Human Rights, adopted in 1948."
+      }
+    };
+
+    function setActive(buttons, activeButton) {
+      buttons.forEach((button) => {
+        const isActive = button === activeButton;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-selected", String(isActive));
+      });
+    }
+
+    function renderTags(container, tags) {
+      container.innerHTML = tags.map((tag) => `<span class="pill">${tag}</span>`).join("");
+    }
+
+    function renderDiagram(type) {
+      const colorMap = {
+        assembly: ["#355f7c", "#c69a3a"],
+        columns: ["#6d4a64", "#c69a3a"],
+        seal: ["#a33f2f", "#c69a3a"],
+        scroll: ["#476b54", "#c69a3a"],
+        council: ["#355f7c", "#476b54"],
+        law: ["#a33f2f", "#355f7c"]
+      };
+      const [primary, secondary] = colorMap[type];
+      const diagrams = {
+        assembly: `<svg viewBox="0 0 420 300" role="img" aria-label="Assembly diagram"><circle cx="210" cy="136" r="84" fill="${primary}" opacity=".16"/><path d="M95 210c28-48 70-72 115-72s87 24 115 72" fill="none" stroke="${primary}" stroke-width="16" stroke-linecap="round"/><circle cx="140" cy="118" r="24" fill="${secondary}"/><circle cx="210" cy="92" r="28" fill="${secondary}"/><circle cx="280" cy="118" r="24" fill="${secondary}"/><path d="M95 236h230" stroke="#191714" stroke-width="10" stroke-linecap="round"/></svg>`,
+        columns: `<svg viewBox="0 0 420 300" role="img" aria-label="Roman columns diagram"><path d="M90 82h240l-120-52z" fill="${primary}"/><path d="M76 236h268v24H76z" fill="#191714"/><g fill="${secondary}"><rect x="105" y="96" width="34" height="130"/><rect x="166" y="96" width="34" height="130"/><rect x="227" y="96" width="34" height="130"/><rect x="288" y="96" width="34" height="130"/></g></svg>`,
+        seal: `<svg viewBox="0 0 420 300" role="img" aria-label="Charter seal diagram"><path d="M100 76h190c28 0 50 22 50 50v84H100z" fill="#f7ecd9" stroke="#191714" stroke-width="6"/><path d="M132 120h130M132 152h164M132 184h104" stroke="${primary}" stroke-width="10" stroke-linecap="round"/><circle cx="302" cy="214" r="48" fill="${secondary}" stroke="#191714" stroke-width="6"/><path d="M302 178v72M266 214h72" stroke="#fff8ea" stroke-width="8" stroke-linecap="round"/></svg>`,
+        scroll: `<svg viewBox="0 0 420 300" role="img" aria-label="Reissued scroll diagram"><path d="M112 72h174c34 0 62 28 62 62v86H112z" fill="#f7ecd9" stroke="#191714" stroke-width="6"/><path d="M112 72c-28 0-48 20-48 44s20 44 48 44" fill="none" stroke="${primary}" stroke-width="18" stroke-linecap="round"/><path d="M140 122h150M140 154h126M140 186h150" stroke="${secondary}" stroke-width="10" stroke-linecap="round"/></svg>`,
+        council: `<svg viewBox="0 0 420 300" role="img" aria-label="Council diagram"><circle cx="210" cy="150" r="90" fill="${primary}" opacity=".16"/><g fill="${secondary}"><circle cx="210" cy="58" r="24"/><circle cx="292" cy="104" r="24"/><circle cx="292" cy="196" r="24"/><circle cx="210" cy="242" r="24"/><circle cx="128" cy="196" r="24"/><circle cx="128" cy="104" r="24"/></g><circle cx="210" cy="150" r="36" fill="${primary}"/></svg>`,
+        law: `<svg viewBox="0 0 420 300" role="img" aria-label="Law book diagram"><path d="M94 76h120c30 0 54 24 54 54v116H148c-30 0-54-24-54-54z" fill="#f7ecd9" stroke="#191714" stroke-width="6"/><path d="M268 130c0-30 24-54 54-54h4v170h-58z" fill="${primary}" stroke="#191714" stroke-width="6"/><path d="M136 128h82M136 160h82M136 192h62" stroke="${secondary}" stroke-width="10" stroke-linecap="round"/></svg>`
+      };
+      return diagrams[type];
+    }
+
+    document.querySelectorAll(".voice-tab").forEach((button) => {
+      button.addEventListener("click", () => {
+        const data = voiceData[button.dataset.voice];
+        setActive(document.querySelectorAll(".voice-tab"), button);
+        document.getElementById("voice-title").textContent = data.title;
+        document.getElementById("voice-quote").textContent = data.quote;
+        document.getElementById("voice-body").textContent = data.body;
+        renderTags(document.getElementById("voice-tags"), data.tags);
+        const image = document.getElementById("voice-img");
+        image.src = data.img;
+        image.alt = data.alt;
+        document.getElementById("voice-caption").textContent = data.caption;
+      });
+    });
+
+    document.querySelectorAll(".clause-tab").forEach((button) => {
+      button.addEventListener("click", () => {
+        const data = clauseData[button.dataset.clause];
+        setActive(document.querySelectorAll(".clause-tab"), button);
+        document.getElementById("clause-title").textContent = data.title;
+        document.getElementById("clause-text").textContent = data.text;
+        document.getElementById("clause-body").textContent = data.body;
+      });
+    });
+
+    document.querySelectorAll(".timeline-tab").forEach((button) => {
+      button.addEventListener("click", () => {
+        const data = timelineData[button.dataset.time];
+        setActive(document.querySelectorAll(".timeline-tab"), button);
+        document.getElementById("timeline-year").textContent = data.year;
+        document.getElementById("timeline-title").textContent = data.title;
+        document.getElementById("timeline-body").textContent = data.body;
+        document.getElementById("timeline-diagram").innerHTML = renderDiagram(data.diagram);
+      });
+    });
+
+    document.querySelectorAll(".war-tab").forEach((button) => {
+      button.addEventListener("click", () => {
+        const data = warData[button.dataset.war];
+        setActive(document.querySelectorAll(".war-tab"), button);
+        document.getElementById("war-title").textContent = data.title;
+        document.getElementById("war-body").textContent = data.body;
+        document.getElementById("war-points").innerHTML = data.points.map((point) => `<li>${point}</li>`).join("");
+      });
+    });
+
+    document.querySelectorAll(".country-tab").forEach((button) => {
+      button.addEventListener("click", () => {
+        const data = countryData[button.dataset.country];
+        setActive(document.querySelectorAll(".country-tab"), button);
+        document.getElementById("country-title").textContent = data.title;
+        document.getElementById("country-body").textContent = data.body;
+        renderTags(document.getElementById("country-tags"), data.tags);
+        const image = document.getElementById("country-img");
+        image.src = data.img;
+        image.alt = data.alt;
+        document.getElementById("country-caption").textContent = data.caption;
+      });
+    });
+
+    document.getElementById("timeline-diagram").innerHTML = renderDiagram("assembly");
+  </script>
+</body>
+</html>
